@@ -9,49 +9,51 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
-    <div class="p-10">
-        <img class="mx-auto" width="120px"
-            src="https://images.unsplash.com/photo-1694901555616-d7b2b33e6406?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5Njg2NDc2MQ&ixlib=rb-4.0.3&q=80&w=600"
-            alt="">
+<body class="font-kanit flex flex-col min-h-screen">
+    <div class="p-5">
+        <img class="mx-auto" width="120px" src="{{ asset('images/logo-primary.png') }}" alt="Logo">
     </div>
     <div class="container py-0 mx-auto px-4 ">
-        <h1 class="text-xl text-center font-bold text-green-700">Masuk</h1>
-        <form action="#" method="POST" class="mx-auto mt-5 px-4 max-w-xl sm:mt-20">
-            <div class="grid grid-cols-1 gap-x-8 gap-y-5">
+        <h1 class="text-xl text-center font-bold text-hijau-primary">Masuk</h1>
+        <form action="#" method="POST" class="mx-auto mt-5 px-4 max-w-xl">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-5 sm:gap-y-4">
                 <input type="email" name="email" id="email" autocomplete="email" placeholder="Email"
-                    class="block w-full bg-slate-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-sm placeholder:font-bold placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <input type="password" name="password" id="password" autocomplete="password" placeholder="Password"
-                    class="block w-full bg-slate-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-sm placeholder:font-bold placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <button type="submit"
-                    class="block w-full rounded-full bg-green-700 px-3.5 
-                        py-2.5 text-center text-xl font-bold text-white shadow-sm
-                        hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login
+                    class="block w-full rounded-full bg-hijau-primary px-3.5 
+                        py-2.5 text-center text-xl font-bold text-white shadow-drop
+                        hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Masuk
                 </button>
-                <span class="text-xl text-center font-bold text-green-700">Atau</span>
+                <span class="text-xl text-center font-bold text-hijau-primary">atau</span>
                 <a
-                    class="px-4 py-2.5 border flex justify-center items-center gap-2 border-slate-200 rounded-full text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                    class="px-4 py-2.5 shadow-drop bg-abu-100 text-abu-300 flex justify-start items-center gap-2 border-slate-200 rounded-full hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
                     <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg"
                         loading="lazy"alt="google logo">
-                    <span>Login with Google</span>
+                    <span class="font-bold mx-auto">Google Account</span>
                 </a>
                 <a type="button"
-                    class="py-2.5 px-4 max-w-md  flex justify-center items-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full">
-                    <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 1792 1792"
+                    class="px-4 py-2.5 shadow-drop bg-abu-100 text-abu-300 flex justify-start items-center gap-2 border-slate-200 rounded-full hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                    <svg fill="#3e5acc" width="28px" height="28px" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z">
-                        </path>
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z">
+                            </path>
+                        </g>
                     </svg>
-                    Login with Facebook
+                    <span class="font-bold mx-auto">Facebook Account</span>
                 </a>
-                <span class="text-sm text-center font-bold text-green-700">Belum punya akun ? Silahkan
-                    <a class="text-sky-600" href="#">Daftar</a>
+                <span class="text-sm text-center font-bold text-gray-500">Belum punya akun ? Silahkan untuk
+                    <a class="text-hijau-primary" href="#">Daftar</a>
                 </span>
             </div>
         </form>
     </div>
-
+    @include('includes.footer')
 </body>
 
 </html>

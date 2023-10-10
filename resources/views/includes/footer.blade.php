@@ -1,3 +1,3 @@
-<footer class="">
-    <div id="copyright text-right">© Copyright 2023 Manyways Team </div>
+<footer class="bg-abu-300 h-9 flex justify-center items-center text-white font-bold text-sm mt-auto">
+    <div id="">Copyright @2023 - Jabatani</div>
 </footer>
