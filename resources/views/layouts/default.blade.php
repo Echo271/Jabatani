@@ -4,11 +4,11 @@
 <head>
     @include('includes.head')
 </head>
-<body>
+<body class="font-kanit flex flex-col min-h-screen">
     @yield('navbar')
     <div class="mt-14 pt-4 max-h-full">
         @yield('content')
     </div>
-    {{-- @include('includes.footer') --}}
+    @include('includes.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
