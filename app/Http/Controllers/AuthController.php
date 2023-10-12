@@ -26,7 +26,7 @@ class AuthController extends Controller
     public function register()
     {
         $data = array(
-            'title' => 'Daftar Akun'
+            'title' => 'Daftar Akun',
         );
         return view('/pages/register', $data);
     }
@@ -36,7 +36,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:3|confirmed'
-        ],[
+        ], [
             'email.required' => 'Email wajib diisi',
             'name.required' => 'Nama wajib diisi',
             'password.required' => 'Password wajib diisi',
@@ -47,15 +47,19 @@ class AuthController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 
-        $credentials = $request->only('email', 'password');
-        Auth::attempt($credentials);
-        $request->session()->regenerate();
-        return redirect()->route('/dashboard')
-            ->withSuccess('You have successfully registered & logged in!');
+        $infoLogin = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        if (Auth::attempt($infoLogin)) {
+            return redirect('/dashboard');
+        } else {
+            return redirect('')->withErrors('Email dan Password tidak terdaftar')->withInput();
+        }
     }
     public function valid(Request $request)
     {
@@ -79,6 +83,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('');
+        return redirect('login');
     }
 }

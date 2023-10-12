@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 // ! Dapat diakses tanpa melakukan login
 Route::get('/', [AuthController::class, 'index']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'valida']);
+Route::post('/login', [AuthController::class, 'valid']);
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'create']);
-Route::get('/dashboard', [UserController::class, 'index']);
 
 // ! Hanya dapat diakses ketika sudah melakukan login
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [UserController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/list', [KomoditasController::class, 'index'])->name('list');
     Route::get('/single', [KomoditasController::class, 'single']);

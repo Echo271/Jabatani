@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('/images/logo-primary.png')}}">
     <title>{{ $title }}</title>
     @vite('resources/css/app.css')
 </head>
@@ -14,7 +14,10 @@
         <img class="mx-auto" width="120px" src="{{ asset('images/logo-primary.png') }}" alt="Logo">
     </div>
     <div class="container py-0 mx-auto px-4 ">
+
         <h1 class="text-xl text-center font-bold text-hijau-primary">Masuk</h1>
+
+        {{-- ! Form Input --}}
         <form method="POST" action="" class="mx-auto mt-5 px-4 max-w-xl">
             @csrf
             @if ($errors->any())

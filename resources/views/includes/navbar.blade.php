@@ -40,7 +40,7 @@
                                     role="menuitem">Profile</a>
                             </li>
                             <li>
-                                <a href="/logout"
+                                <a href="{{ url('/logout') }}"
                                     class="block px-4 py-2 text-sm text-white hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Sign out</a>
                             </li>
