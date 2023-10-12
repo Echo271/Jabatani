@@ -2,19 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function index()
     {
         $data = array(
-            'title' => 'Halaman Login',
+            'title' => 'Start Page',
+        );
+        return view('/pages/index', $data);
+    }
+    public function login()
+    {
+        $data = array(
+            'title' => 'Login',
         );
         return view('/pages/login', $data);
     }
-    public function login(Request $request)
+    public function register()
+    {
+        $data = array(
+            'title' => 'Daftar Akun'
+        );
+        return view('/pages/register', $data);
+    }
+    public function create(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:250',
+            'email' => 'required|email|max:250|unique:users',
+            'password' => 'required|min:3|confirmed'
+        ],[
+            'email.required' => 'Email wajib diisi',
+            'name.required' => 'Nama wajib diisi',
+            'password.required' => 'Password wajib diisi',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        Auth::attempt($credentials);
+        $request->session()->regenerate();
+        return redirect()->route('/dashboard')
+            ->withSuccess('You have successfully registered & logged in!');
+    }
+    public function valid(Request $request)
     {
         $request->validate([
             'email' => 'required',

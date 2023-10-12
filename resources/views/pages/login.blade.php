@@ -15,12 +15,25 @@
     </div>
     <div class="container py-0 mx-auto px-4 ">
         <h1 class="text-xl text-center font-bold text-hijau-primary">Masuk</h1>
-        <form  method="POST" action="" class="mx-auto mt-5 px-4 max-w-xl">
+        <form method="POST" action="" class="mx-auto mt-5 px-4 max-w-xl">
             @csrf
+            @if ($errors->any())
+                <div class="bg-red-400 rounded-lg mx-4 mb-2 text-white ">
+                    <ul>
+                        @foreach ($errors->all() as $item)
+                            <li class="border pl-2 border-x-0 border-b-1">{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="grid grid-cols-1 gap-x-8 gap-y-5 sm:gap-y-4">
                 {{-- Input Form --}}
                 <input type="email" name="email" id="email" autocomplete="email" placeholder="Email"
-                    class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    value="{{ old('email') }}"
+                    class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2
+                    text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6
+                    placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm
+                    sm:leading-6">
                 <input type="password" name="password" id="password" autocomplete="password" placeholder="Password"
                     class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 {{-- Submit Form --}}
@@ -30,7 +43,7 @@
                         hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Masuk
                 </button>
                 <span class="text-xl text-center font-bold text-hijau-primary">atau</span>
-                <a
+                <a type="button"
                     class="px-4 py-2.5 shadow-drop bg-abu-100 text-abu-300 flex justify-start items-center gap-2 border-slate-200 rounded-full hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
                     <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg"
                         loading="lazy"alt="google logo">
@@ -51,7 +64,7 @@
                     <span class="font-bold mx-auto">Facebook Account</span>
                 </a>
                 <span class="text-sm text-center font-bold text-gray-500">Belum punya akun ? Silahkan untuk
-                    <a class="text-hijau-primary" href="#">Daftar</a>
+                    <a class="text-hijau-primary" href="{{ route('register') }}">Daftar</a>
                 </span>
             </div>
         </form>
