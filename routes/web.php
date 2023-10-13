@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KomoditasController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PetaniController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,11 +30,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/list', [KomoditasController::class, 'index'])->name('list');
     Route::get('/single', [KomoditasController::class, 'single']);
     Route::get('/pesanan', [KomoditasController::class, 'pesanan']);
-    Route::get('/input/{name}', [KomoditasController::class, 'inputData']);
-    Route::post('/create', [KomoditasController::class, 'store']);
-    Route::get('/single-komoditas', [KomoditasController::class, 'singleKomoditas']);
+    Route::get('/create', [KomoditasController::class, 'create']);
+    Route::get('/edit-komoditas', [KomoditasController::class, 'edit']);
     Route::get('/profile', [UserController::class, 'profile']);
-    Route::get('/test', [UserController::class, 'getData']);
-    
+    Route::get('/profile-visit', [UserController::class, 'profileVisit']);
+
+    Route::get('/akun', [PetaniController::class, 'akun']);
 });
 

@@ -71,4 +71,14 @@ class KomoditasController extends Controller
             return redirect('create')->withErrors($e->getMessage())->withInput();
         }
     }
+    public function edit()
+    {
+        $data = array(
+            'title' => 'Edit Komoditas',
+            'user' => Auth::user()
+        );
+        return view('/pages/komoditas/edit', $data);
+    }
+
+
 }

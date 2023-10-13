@@ -16,15 +16,24 @@ class UserController extends Controller
 
         return view('/pages/dashboard', $data);
     }
-    
+
     public function profile(){
         $data = array(
             'title' => 'Profile',
             'user' => Auth::user(),
             
         );
-    
+
         return view('/pages/profiles/profile', $data);
+    }
+
+    public function profileVisit(){
+        $data = array(
+            'title' => 'Profile',
+            'user' => Auth::user(),
+        );
+
+        return view('/pages/profiles/profileVisit', $data);
     }
 
     public function getData()
@@ -42,7 +51,7 @@ class UserController extends Controller
         curl_close($ch);
         // Mengubah format json ke array assosiative
         $dataJson = json_decode($response, true);
-        
+
         $data = array(
             'title' => 'Dashboard',
             'user' => Auth::user(),
