@@ -4,8 +4,6 @@
 @endsection
 @section('content')
     <div class="container flex items-center justify-center h-52 bg-abu-300">
-
-
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -70,55 +68,63 @@
     </div>
     @if ($user->role == 'pedagang')
         {{-- Dashboard Pedagang --}}
-
-    <div class="container max-h-full p-2">
-        @include('includes.search') 
-        <div class="flex flex-wrap justify-center gap-6 p-4">
-            @if(isset($data_api['data1']['komoditas']) && isset($data_api['data1']['harga']))
-                @for($i = 0; $i < count($data_api['data1']['komoditas']); $i++)
-                    <a class="p-2 py-6 overflow-hidden shadow-lg w-36 rounded-2xl bg-hijau-primary" href="{{ url('/list')}}">
-                        <img class="w-16 pb-2 mx-auto" src="{{ asset('images/cabaibesar.png') }}" alt="Sunset in the mountains">
-                        <div class="flex flex-col items-center px-2 py-1">
-                            <span class="text-sm text-white">{{ $data_api['data1']['komoditas'][$i] }}</span>
-                            <span class="text-sm text-white">Rp{{ $data_api['data1']['harga'][$i] }}</span>
-                        </div>
-                    </a>
-                @endfor
-        @else
-            <p>No data available.</p>
-        @endif
-        </div>
-    </div>
-
-    {{-- Dashboard Petani --}}
-    <div class="container p-7">
-        <h2 class="pb-3 text-center text-abu-300">Update Harga Komoditas Pasar Hari ini</h2>
-        @if(isset($data_api['data1']['komoditas']) && isset($data_api['data1']['harga'])
-        && isset($data_api['data2']['harga']))
-            @for($i = 0; $i < count($data_api['data1']['komoditas']); $i++)
-            <div class="container py-2">
-                <div class="flex items-center justify-between w-full gap-2 p-4 m-auto text-white rounded-lg bg-hijau-primary">
-                    {{-- <img src="{{ asset('images/cabaibesar.png') }}" class="w-1/5" alt=""> --}}
-                        <div class="flex items-center gap-2">
-                            <h2 class="font-bold text-md">{{ $data_api['data1']['komoditas'][$i] }}</h2>
-                            
-                            @if($data_api['data1']['harga'][$i] > $data_api['data2']['harga'][$i]))
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-square-fill" viewBox="0 0 16 16">
-                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 9h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5A.5.5 0 0 0 4 11z"/>
-                            </svg>
-                            @else
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
-                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6H4z"/>
-                            </svg>
-                            @endif
-                            <p>Rp {{ $data_api['data1']['harga'][$i] }}</p>
-                        </div>
-                </div>
+        <div class="container max-h-full p-2">
+            @include('includes.search')
+            <div class="flex flex-wrap justify-center gap-6 p-4">
+                @if (isset($data_api['data1']['komoditas']) && isset($data_api['data1']['harga']))
+                    @for ($i = 0; $i < count($data_api['data1']['komoditas']); $i++)
+                        <a class="p-2 py-6 overflow-hidden shadow-lg w-36 rounded-2xl bg-hijau-primary"
+                            href="{{ url('/list') }}">
+                            <img class="w-16 pb-2 mx-auto" src="{{ asset('images/cabaibesar.png') }}"
+                                alt="Sunset in the mountains">
+                            <div class="flex flex-col items-center px-2 py-1">
+                                <span class="text-sm text-white">{{ $data_api['data1']['komoditas'][$i] }}</span>
+                                <span class="text-sm text-white">Rp{{ $data_api['data1']['harga'][$i] }}</span>
+                            </div>
+                        </a>
+                    @endfor
+                @else
+                    <p>No data available.</p>
+                @endif
             </div>
-            @endfor
-        @else
-            <p>No data available.</p>
-        @endif
-    </div>
+        </div>
+    @endif
+    @if ($user->role)
 
+        {{-- Dashboard Petani --}}
+        <div class="container p-7">
+            <h2 class="pb-3 text-center text-abu-300">Update Harga Komoditas Pasar Hari ini</h2>
+            @if (isset($data_api['data1']['komoditas']) && isset($data_api['data1']['harga']) && isset($data_api['data2']['harga']))
+                @for ($i = 0; $i < count($data_api['data1']['komoditas']); $i++)
+                    <div class="container py-2">
+                        <div
+                            class="flex items-center justify-between w-full gap-2 p-4 m-auto text-white rounded-lg bg-hijau-primary">
+                            {{-- <img src="{{ asset('images/cabaibesar.png') }}" class="w-1/5" alt=""> --}}
+                            <div class="flex items-center gap-2">
+                                <h2 class="font-bold text-md">{{ $data_api['data1']['komoditas'][$i] }}</h2>
+
+                                @if ($data_api['data1']['harga'][$i] > $data_api['data2']['harga'][$i])
+                                    )
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-caret-up-square-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 9h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5A.5.5 0 0 0 4 11z" />
+                                    </svg>
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6H4z" />
+                                    </svg>
+                                @endif
+                                <p>Rp {{ $data_api['data1']['harga'][$i] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            @else
+                <p>No data available.</p>
+            @endif
+        </div>
+    @endif
 @endsection
