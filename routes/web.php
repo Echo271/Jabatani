@@ -21,7 +21,6 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'valid']);
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'create']);
-Route::get('/test', [UserController::class, 'getData']);
 
 // ! Hanya dapat diakses ketika sudah melakukan login
 Route::group(['middleware' => ['auth']], function () {
@@ -30,8 +29,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/list', [KomoditasController::class, 'index'])->name('list');
     Route::get('/single', [KomoditasController::class, 'single']);
     Route::get('/pesanan', [KomoditasController::class, 'pesanan']);
-    Route::get('/create', [KomoditasController::class, 'create']);
+    Route::get('/input/{name}', [KomoditasController::class, 'inputData']);
+    Route::post('/create', [KomoditasController::class, 'store']);
+    Route::get('/single-komoditas', [KomoditasController::class, 'singleKomoditas']);
     Route::get('/profile', [UserController::class, 'profile']);
+    Route::get('/test', [UserController::class, 'getData']);
     
 });
 

@@ -21,6 +21,7 @@ class UserController extends Controller
         $data = array(
             'title' => 'Profile',
             'user' => Auth::user(),
+            
         );
     
         return view('/pages/profiles/profile', $data);

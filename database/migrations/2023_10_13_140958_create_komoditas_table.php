@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('komoditas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kategori');
             $table->string('name');
+            $table->unsignedBigInteger('petani_id');
+            $table->string('kategori');
             $table->string('stock');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
     </div>
     <div class="container px-4">
         <div class="container py-0 mx-auto px-4 mb-4 ">
-            <form method="POST" action="" class="mx-auto mt-5 px-4 max-w-xl">
+            <form method="POST" action="{{ url('store') }}" class="mx-auto mt-5 px-4 max-w-xl">
                 @csrf
                 @if ($errors->any())
                     <div class="bg-red-400 rounded-lg mb-2 text-white ">
@@ -21,16 +21,18 @@
                 @endif
                 <div class="grid grid-cols-1 gap-x-8 gap-y-5 sm:gap-y-4">
                     {{-- Input Form --}}
+                    <input type="hidden" name="petani_id" value="{{ $user->id }}">
                     <label for="name" class="text-hijau-primary font-bold tracking-wider pl-2">Komoditas</label>
                     <input type="text" name="name" id="name" autocomplete="name" placeholder="Nama"
                         class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     <label for="stok" class="text-hijau-primary font-bold tracking-wider pl-2">Stok</label>
                     <input type="number" name="stok" id="stok" autocomplete="stok" placeholder="0 Kg"
                         class="block w-full bg-abu-200 rounded-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-md pl-6  placeholder:text-abu-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    <select id="role" name="role"
+                    <select id="kategori" name="kategori"
                         class="mt-1 block w-full py-2 pl-6 border text-hijau-primary border-gray-300 bg-white rounded-full shadow-sm focus:ring-hijau-primary focus:border-hijau-primary focus:text-hijau-primary text-md">
-                        <option class="hover:bg-black" value="pedagang">Pedagang</option>
-                        <option value="petani">Petani</option>
+                        @foreach ($kategori as $item)
+                        <option value="{{$item->name}}">{{$item->name}}</option>
+                        @endforeach
                     </select>
                     <label for="stok" class="text-hijau-primary font-bold tracking-wider pl-2">Keterangan</label>
                     <textarea class="mb-4 text-gray-500 rounded-2xl bg-abu-200   tracking-wider pl-4 border-0 py-2" name="keterangan"
