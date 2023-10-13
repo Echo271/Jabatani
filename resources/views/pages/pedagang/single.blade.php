@@ -5,15 +5,20 @@
 @section('content')
     @include('includes.search')
     {{-- Single Item --}}
+    @php
+        $petani = DB::table('users')
+            ->where('users.id', $komoditas->id)
+            ->get();
+    @endphp
     <div class="container bg-abu-200 text-hijau-primary">
         <div class="flex flex-col h-fit">
             <div class="px-4 h-36 bg-cover bg-center" style="background-image: url('/images/cabai_besar.jpg')"></div>
             <div class="flex flex-col w-full p-4 ">
-                <h2 class="font-bold text-xl">Cabai Merah Besar</h2>
+                <h2 class="font-bold text-xl">{{ $komoditas->name }}</h2>
                 <div class="py-1 flex justify-between">
                     <div class="flex flex-col">
-                        <span class="text-sm">Pak Sarmidi</span>
-                        <span class="text-xl pt-2">Stok : 150kg</span>
+                        <span class="text-sm first-letter:uppercase">{{ $petani[0]->name }}</span>
+                        <span class="text-xl pt-2">Stok : {{ $komoditas->stock }} kg</span>
                     </div>
                     <div class="flex gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -22,11 +27,11 @@
                                 d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
                             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
-                        <span class="text-sm">Loa Buah</span>
+                        <span class="text-sm">{{ $petani[0]->address }}</span>
                     </div>
                 </div>
                 <div class="flex">
-                    <form method="POST" action="#" class=" flex mt-2 gap-6 max-w-xl">
+                    <form method="POST" action="{{ url('pesanan') }}" class=" flex mt-2 gap-6 max-w-xl">
                         @csrf
                         @if ($errors->any())
                             <div class="bg-red-400 rounded-lg mx-4 mb-2 text-white ">
@@ -39,6 +44,9 @@
                         @endif
                         {{-- ! Input Form --}}
                         <div class="flex justify-between rounded-lg">
+                            <input type="hidden" name="id_komoditas" value="{{ $komoditas->id }}">
+                            <input type="hidden" name="id_pedagang" value="{{ $user->id }}">
+                            <input type="hidden" name="id_petani" value="{{ $komoditas->petani_id }}">
                             <input type="number"
                                 class="focus:ring-none border-white text-center w-full h-full bg-white rounded-l-full  text-md flex items-center placeholder:text-abu-300 text-abu-300 outline-none"
                                 name="pesanan" placeholder="0 Kg" value="0">
@@ -62,7 +70,8 @@
                 <a type="button"
                     class="block mt-6 w-full rounded-full bg-hijau-primary px-3.5
                         py-2.5 text-center text-xl font-bold text-white shadow-drop
-                        hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Hubungi
+                        hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Profil
+                    Petani
                 </a>
             </div>
         </div>

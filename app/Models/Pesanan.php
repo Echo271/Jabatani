@@ -9,13 +9,13 @@ class Pesanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'komoditas';
+    protected $table = 'pesanan';
 
     protected $fillable = [
         'pedagang_id',
         'petani_id',
         'komoditas_id',
-        'stock',
+        'stok',
     ];
 
     const CREATED_AT = 'created_at';
