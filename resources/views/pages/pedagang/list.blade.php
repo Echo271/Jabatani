@@ -48,7 +48,7 @@
             @foreach ($komoditas as $item)
                 <li>
                     @php
-                        $petani = DB::table('users')->where('users.id',$item->id)->get();
+                        $petani = DB::table('users')->where('users.id',$item->petani_id)->get();
                     @endphp
                     <a class="block w-full h-44 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary"
                         href="{{ url("/single-pedagang/$item->id/$user->id") }}">

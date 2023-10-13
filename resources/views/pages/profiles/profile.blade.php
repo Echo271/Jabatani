@@ -106,7 +106,7 @@
         <div class="container flex flex-col gap-6 p-6">
             <h1 class="-mt-3 -mb-3 text-center text-abu-300">Pesanan Saya</h1>
             @foreach ($pesanan as $item)
-                <ul>
+                <ul class="flex flex-col gap-4">
                     <li>
                         @php
                             $petani = DB::table('users')
@@ -116,7 +116,7 @@
                                 ->where('komoditas.id', $item->komoditas_id)
                                 ->get();
                         @endphp
-                        <a href=""
+                        <a href="{{ url('pesanan', ['id_pesanan'=>$item->id,'id_pedagang' => $user->id]) }}"
                             class="flex justify-around w-full p-4 m-auto text-white rounded-full bg-hijau-primary">
                             <div class="">
                                 <p class="text-xl font-bold">{{$komoditas[0]->name}}</p>

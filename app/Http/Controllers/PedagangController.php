@@ -40,6 +40,22 @@ class PedagangController extends Controller
         );
         return view('/pages/pedagang/single', $data);
     }
+    public function pesanan($id_pesanan,$id_pedagang)
+    {
+        if ($id_pedagang != Auth::user()->id) {
+            return redirect('dashboard');
+        }
+        $pesanan = Pesanan::where(
+            'id',
+            $id_pesanan
+        )->first();
+        $data = array(
+            'title' => 'Cabai Besar',
+            'user' => Auth::user(),
+            'pesanan' => $pesanan
+        );
+        return view('/pages/pedagang/pesanan', $data);
+    }
     public function order(Request $request)
     {
         try {

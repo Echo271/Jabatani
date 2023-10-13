@@ -11,38 +11,56 @@
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{url('/images/maxresdefault.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ url('/images/maxresdefault.jpg') }}"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{url('/images/mqdefault.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ url('/images/mqdefault.jpg') }}"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{url('/images/el-nino-landa-indonesia-menteri-pertanian-siapkan-langkah-antisipasi-yvx.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ url('/images/el-nino-landa-indonesia-menteri-pertanian-siapkan-langkah-antisipasi-yvx.png') }}"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                    data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                    data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                    data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                    data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                    data-carousel-slide-to="4"></button>
             </div>
             <!-- Slider controls -->
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            <button type="button"
+                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-prev>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 1 1 5l4 4" />
                     </svg>
                     <span class="sr-only">Previous</span>
                 </span>
             </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            <button type="button"
+                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-next>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
                     </svg>
                     <span class="sr-only">Next</span>
                 </span>
@@ -50,56 +68,59 @@
         </div>
 
     </div>
+    @if ($user->role == 'pedagang')
+        {{-- Dashboard Pedagang --}}
 
-    {{-- Dashboard Pedagang --}}
-
-    <div class="container max-h-full p-2">
-        @include('includes.search')
-        <div class="flex flex-wrap gap-6 justify-center p-4">
-            <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/list')}}">
-                <img class="w-16 pb-2 mx-auto" src="{{ asset('images/cabaibesar.png') }}" alt="Sunset in the mountains">
-                <div class="px-2 py-1 flex items-center flex-col">
-                    <span class="text-white text-sm">Cabai Besar</span>
-                    <span class="text-white text-sm">Rp23.000/kg</span>
-                </div>
-            </a>
-            <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
-                <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
-                <div class="px-2 py-1 flex items-center flex-col">
-                    <span class="text-white text-sm">Cabai Besar</span>
-                    <span class="text-white text-sm">Rp23.000/kg</span>
-                </div>
-            </a>
-            <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
-                <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
-                <div class="px-2 py-1 flex items-center flex-col">
-                    <span class="text-white text-sm">Cabai Besar</span>
-                    <span class="text-white text-sm">Rp23.000/kg</span>
-                </div>
-            </a>
-            <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
-                <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
-                <div class="px-2 py-1 flex items-center flex-col">
-                    <span class="text-white text-sm">Cabai Besar</span>
-                    <span class="text-white text-sm">Rp23.000/kg</span>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    {{-- Dashboard Petani --}}
-    <div class="container p-7">
-        <h2 class="text-center text-abu-300 pb-3">Update Harga Komoditas Pasar</h2>
-        <div class="flex justify-around gap-2 w-full text-white bg-hijau-primary m-auto p-4 rounded-lg items-center">
-           <img src="{{asset('images/cabaibesar.png')}}" class="w-1/5" alt="">
-            <h2 class="font-bold text-md">Cabai Besar Merah</h2>
-            <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-square-fill" viewBox="0 0 16 16">
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 9h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5A.5.5 0 0 0 4 11z"/>
-                </svg>
-                <p>Rp15.000/kg</p>
+        <div class="container max-h-full p-2">
+            @include('includes.search')
+            <div class="flex flex-wrap gap-6 justify-center p-4">
+                <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/list') }}">
+                    <img class="w-16 pb-2 mx-auto" src="{{ asset('images/cabaibesar.png') }}" alt="Sunset in the mountains">
+                    <div class="px-2 py-1 flex items-center flex-col">
+                        <span class="text-white text-sm">Cabai Besar</span>
+                        <span class="text-white text-sm">Rp23.000/kg</span>
+                    </div>
+                </a>
+                <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
+                    <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
+                    <div class="px-2 py-1 flex items-center flex-col">
+                        <span class="text-white text-sm">Cabai Besar</span>
+                        <span class="text-white text-sm">Rp23.000/kg</span>
+                    </div>
+                </a>
+                <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
+                    <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
+                    <div class="px-2 py-1 flex items-center flex-col">
+                        <span class="text-white text-sm">Cabai Besar</span>
+                        <span class="text-white text-sm">Rp23.000/kg</span>
+                    </div>
+                </a>
+                <a class="w-36 p-2 py-6 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
+                    <img class="w-16 pb-2 mx-auto" src="{{ asset('images/kubis.png') }}" alt="Sunset in the mountains">
+                    <div class="px-2 py-1 flex items-center flex-col">
+                        <span class="text-white text-sm">Cabai Besar</span>
+                        <span class="text-white text-sm">Rp23.000/kg</span>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-
+    @endif
+    @if ($user->role == 'petani')
+        {{-- Dashboard Petani --}}
+        <div class="container p-7">
+            <h2 class="text-center text-abu-300 pb-3">Update Harga Komoditas Pasar</h2>
+            <div class="flex justify-around gap-2 w-full text-white bg-hijau-primary m-auto p-4 rounded-lg items-center">
+                <img src="{{ asset('images/cabaibesar.png') }}" class="w-1/5" alt="">
+                <h2 class="font-bold text-md">Cabai Besar Merah</h2>
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-up-square-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4 9h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5A.5.5 0 0 0 4 11z" />
+                    </svg>
+                    <p>Rp15.000/kg</p>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
