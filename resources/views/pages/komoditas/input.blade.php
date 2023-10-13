@@ -3,9 +3,6 @@
     @include('includes.navbar')
 @endsection
 @section('content')
-    <div class="container h-44 bg-abu-200">
-
-    </div>
     <div class="container px-4">
         <div class="container py-0 mx-auto px-4 mb-4 ">
             <form method="POST" action="{{ url($tipe) }}" class="mx-auto mt-5 px-4 max-w-xl">
@@ -19,12 +16,45 @@
                         </ul>
                     </div>
                 @endif
+
+                <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 ml-2 sm:col-span-4 md:mr-3 pb-5">
+                    <!-- Photo File Input -->
+                    <input type="file" class="hidden" x-ref="photo" x-on:change="
+                                        photoName = $refs.photo.files[0].name;
+                                        const reader = new FileReader();
+                                        reader.onload = (e) => {
+                                            photoPreview = e.target.result;
+                                        };
+                                        reader.readAsDataURL($refs.photo.files[0]);
+                    ">
+
+                    <label class="block text-hijau-primary text-lg font-bold mb-2" for="photo">
+                        Foto Komoditas <span class="text-red-600"> </span>
+                    </label>
+
+                    <div class="text-center">
+                        <!-- Current Profile Photo -->
+                        <div class="px-2" x-show="! photoPreview">
+                            <img src="https://images.unsplash.com/photo-1531316282956-d38457be0993?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" class="w-full m-auto shadow">
+                        </div>
+                        <!-- New Profile Photo Preview -->
+                        <div class="mt-2" x-show="photoPreview" style="display: none;">
+                            <span class="block w-40 h-40 rounded-full m-auto shadow" x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url('null');">
+                            </span>
+                        </div>
+                        <button type="button" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-hijau-primary uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-400 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3" x-on:click.prevent="$refs.photo.click()">
+                            Edit Foto
+                        </button>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-1 gap-x-8 gap-y-5 sm:gap-y-4">
                     {{-- Input Form --}}
                     @if ($tipe == 'update')
                         <input type="hidden" name="id" value="{{ $komoditas->id }}">
                     @endif
                     <input type="hidden" name="petani_id" value="{{ $user->id }}">
+
                     <label for="name" class="text-hijau-primary font-bold tracking-wider pl-2">Komoditas</label>
                     <input type="text" value="{{ $tipe == 'update' ? $komoditas->name : '' }}"
                         {{ $tipe == 'update' ? 'disabled' : '' }} name="name" id="name" autocomplete="name"
@@ -47,7 +77,7 @@
                 </div>
                 {{-- Submit Form --}}
                 <button type="submit"
-                    class="block w-full rounded-full bg-hijau-primary px-3.5 
+                    class="block w-full rounded-full bg-hijau-primary px-3.5
                             py-2.5 text-center text-xl font-bold text-white shadow-drop
                             hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     {{ $tipe == 'update' ? 'Simpan' : 'Tambah' }}
