@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KomoditasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetaniController;
+use App\Models\Komoditas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/profile-visit', [UserController::class, 'profileVisit']);
     Route::get('/edit-profile', [UserController::class, 'edit']);
+
+    Route::get('/test', [UserController::class, 'getData']);
+    Route::get('/test-json', [KomoditasController::class, 'saveapidata']);
 
     Route::get('/akun', [PetaniController::class, 'akun']);
 });

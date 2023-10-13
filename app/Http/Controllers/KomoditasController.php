@@ -7,6 +7,7 @@ use App\Models\Komoditas;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 class KomoditasController extends Controller
 {
@@ -21,7 +22,7 @@ class KomoditasController extends Controller
 
     public function single()
     {
-        
+
         $data = array(
             'title' => 'Cabai Besar',
             'user' => Auth::user()
@@ -30,7 +31,7 @@ class KomoditasController extends Controller
     }
     public function singleKomoditas()
     {
-        
+
         $data = array(
             'title' => 'Cabai Besar',
             'user' => Auth::user()
@@ -79,6 +80,4 @@ class KomoditasController extends Controller
         );
         return view('/pages/komoditas/edit', $data);
     }
-
-
 }
