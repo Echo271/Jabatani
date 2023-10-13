@@ -35,6 +35,15 @@ class UserController extends Controller
         return view('/pages/profiles/profileVisit', $data);
     }
 
+    public function edit(){
+        $data = array(
+            'title' => 'Edit Profile',
+            'user' => Auth::user(),
+        );
+
+        return view('/pages/profiles/edit', $data);
+    }
+
     public function getData()
     {
         $url = "http://api.samarindakota.go.id/api/v2/generate/dinas-perdagangan/komoditas?uuid=bed13e00-e5a0-11e8-896e-479afe1b8bbc";
