@@ -53,14 +53,14 @@
                         </div>
                         {{-- ! Submit Form --}}
                         <button type="submit"
-                            class="block w-full rounded-full bg-hijau-primary px-3.5 
+                            class="block w-full rounded-full bg-hijau-primary px-3.5
                             text-center text-xl font-bold text-white shadow-drop
                             hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Pesan
                         </button>
                     </form>
                 </div>
                 <a type="button"
-                    class="block mt-6 w-full rounded-full bg-hijau-primary px-3.5 
+                    class="block mt-6 w-full rounded-full bg-hijau-primary px-3.5
                         py-2.5 text-center text-xl font-bold text-white shadow-drop
                         hover:shadow transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Hubungi
                 </a>
