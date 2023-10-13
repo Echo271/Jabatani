@@ -18,14 +18,37 @@ class UserController extends Controller
         return view('/pages/dashboard', $data);
     }
 
+<<<<<<< HEAD
     public function profile()
     {
+=======
+    public function profile(){
+>>>>>>> 367dabb9330295fae0679c9ca9872082de55f323
+        $data = array(
+            'title' => 'Profile',
+            'user' => Auth::user(),
+            
+        );
+
+        return view('/pages/profiles/profile', $data);
+    }
+
+    public function profileVisit(){
         $data = array(
             'title' => 'Profile',
             'user' => Auth::user(),
         );
 
-        return view('/pages/profiles/profile', $data);
+        return view('/pages/profiles/profileVisit', $data);
+    }
+
+    public function edit(){
+        $data = array(
+            'title' => 'Edit Profile',
+            'user' => Auth::user(),
+        );
+
+        return view('/pages/profiles/edit', $data);
     }
 
     public function getData()
@@ -34,6 +57,7 @@ class UserController extends Controller
         $filePath1 = storage_path('dataserver/hargapasar-2023-10-12.json');
         $filePath2 = storage_path('dataserver/hargapasar-2023-10-13.json');
 
+<<<<<<< HEAD
         // Check if the file exists
         if (!Storage::exists($filePath1)) {
             return response()->json(['error' => 'JSON file not found.']);
@@ -55,6 +79,18 @@ class UserController extends Controller
         Storage::put($filename, json_encode($dataJson));
 
         $data = [
+=======
+        // Memasukan header
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        // Mengubah format json ke array assosiative
+        $dataJson = json_decode($response, true);
+
+        $data = array(
+>>>>>>> 367dabb9330295fae0679c9ca9872082de55f323
             'title' => 'Dashboard',
             'user' => Auth::user(),
             'data_api' => $dataJson

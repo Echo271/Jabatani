@@ -15,7 +15,8 @@ class Komoditas extends Model
         'name',
         'petani_id',
         'kategori',
-        'stok',
+        'stock',
+        'keterangan',
     ];
 
     const CREATED_AT = 'created_at';

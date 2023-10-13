@@ -44,7 +44,7 @@
     </div>
 
     <div class="container p-6 flex flex-col gap-6">
-        <a class="w-full h-44 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/list') }}">
+        <a class="w-full h-44 rounded-2xl overflow-hidden shadow-lg bg-hijau-primary" href="{{ url('/single') }}">
             <div class="px-4 h-[65%] bg-cover bg-center" style="background-image: url('/images/cabai_besar.jpg')"></div>
             <div class="px-4 py-1 flex justify-between">
                 <div class="p-2 flex flex-col">
