@@ -8,12 +8,13 @@ use App\Models\Pesanan;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 class KomoditasController extends Controller
 {
-    
 
-    
+
+
     public function single($id_komoditas, $id_petani)
     {
         // jika yang akses bukan user yang login

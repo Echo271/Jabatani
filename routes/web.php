@@ -5,6 +5,7 @@ use App\Http\Controllers\KomoditasController;
 use App\Http\Controllers\PedagangController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetaniController;
+use App\Models\Komoditas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/dashboard', [UserController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/list', [KomoditasController::class, 'index'])->name('list');
+    Route::get('/single', [KomoditasController::class, 'single']);
+    Route::get('/pesanan', [KomoditasController::class, 'pesanan']);
+    Route::get('/create', [KomoditasController::class, 'create']);
+    Route::get('/edit-komoditas', [KomoditasController::class, 'edit']);
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::get('/profile-visit', [UserController::class, 'profileVisit']);
+    Route::get('/edit-profile', [UserController::class, 'edit']);
+
+    Route::get('/test', [UserController::class, 'getData']);
+    Route::get('/test-json', [KomoditasController::class, 'saveapidata']);
+
     Route::get('/akun', [PetaniController::class, 'akun']);
 });
 // ! Pedagang
