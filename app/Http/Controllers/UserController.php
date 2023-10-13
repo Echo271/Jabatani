@@ -11,12 +11,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        $data = array(
+        $data = [
             'title' => 'Dashboard',
             'user' => Auth::user(),
-        );
+        ];
 
-        return view('/pages/dashboard', $data);
+        return view('pages.dashboard', $data);
     }
 
     public function profile(){
@@ -29,22 +29,45 @@ class UserController extends Controller
         return view('/pages/profiles/profile', $data);
     }
 
-    public function profileVisit(){
-        $data = array(
+    public function profileVisit()
+    {
+        $data = [
             'title' => 'Profile',
             'user' => Auth::user(),
-        );
+        ];
 
-        return view('/pages/profiles/profileVisit', $data);
+        return view('pages.profiles.profileVisit', $data);
     }
 
-    public function edit(){
-        $data = array(
+    public function edit()
+    {
+        $data = [
             'title' => 'Edit Profile',
             'user' => Auth::user(),
-        );
+        ];
 
-        return view('/pages/profiles/edit', $data);
+        return view('pages.profiles.edit', $data);
+    }       
+
+    public function getData()
+    {
+        // Path to the JSON files
+        $filePath1 = File::get('C:\Dev\PHP\Jabatani\dataserver\hargapasar-2023-10-12.json');
+        $filePath2 = File::get('C:\Dev\PHP\Jabatani\dataserver\hargapasar-2023-10-12.json');
+
+        // Parse the JSON data into PHP arrays
+        $jsonData1 = json_decode($filePath1, true);
+        $jsonData2 = json_decode($filePath2, true);
+
+        $data = [
+            'title' => 'Dashboard',
+            'user' => Auth::user(),
+            'data_api' => [
+                'data1' => $jsonData1,
+                'data2' => $jsonData2
+            ]
+        ];
+
+        return view('/pages/dashboard', $data);
     }
-
 }
