@@ -32,4 +32,12 @@ class KomoditasController extends Controller
         );
         return view('/pages/komoditas/pesanan', $data);
     }
+    public function create()
+    {
+        $data = array(
+            'title' => 'Tambah Komoditas',
+            'user' => Auth::user()
+        );
+        return view('/pages/komoditas/create', $data);
+    }
 }
