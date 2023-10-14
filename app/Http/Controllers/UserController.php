@@ -91,9 +91,9 @@ class UserController extends Controller
 
     public function getData()
     {
-        // Define the file paths relative to the storage or public directory
-        $filePath1 = File::get('C:\xampp\htdocs\Jabatani\dataserver\hargapasar-2023-10-12.json');
-        $filePath2 = File::get('C:\xampp\htdocs\Jabatani\dataserver\hargapasar-2023-10-13.json');
+        // Path to the JSON files
+        $filePath1 = File::get('D:\Project\Website\Jabatani\dataserver\hargapasar-2023-10-12.json');
+        $filePath2 = File::get('D:\Project\Website\Jabatani\dataserver\hargapasar-2023-10-13.json');
 
         // Check if the files exist before attempting to read and decode them
         if (File::exists($filePath1) && File::exists($filePath2)) {
