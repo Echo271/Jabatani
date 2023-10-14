@@ -42,47 +42,47 @@
         <span class="text-center text-abu-300">Pesanan</span>
         @php
             $pesanan = DB::table('pesanan')
-                ->where('komoditas_id', $komoditas->id)
+                ->where('petani_id', $user->id)->where('komoditas_id',$komoditas->id)
                 ->get();
         @endphp
         <ul class="flex flex-col gap-4">
             @foreach ($pesanan as $item)
+                @php
+                    $petani = DB::table('users')
+                        ->where('users.id', $item->petani_id)
+                        ->get();
+                    $pedagang = DB::table('users')
+                        ->where('users.id', $item->pedagang_id)
+                        ->get();
+                @endphp
                 <li>
-                    <a class="block w-full overflow-hidden shadow-lg h-44 rounded-2xl bg-hijau-primary"
-                        href="{{ url('single-petani', ['id_komoditas' => $item->id, 'id_petani' => $user->id]) }}">
-                        <div class="px-4 h-[65%] bg-cover bg-center"
-                            style="background-image: url('/images/cabai_besar.jpg')"></div>
-                        <div class="flex justify-between p-4 text-white">
-                            <p>{{ $item->stock }}</p>
-                            <p>Stok: {{ $item->stock }} kg</p>
+                    <div class="flex items-center justify-around w-full p-4 m-auto text-white rounded-lg bg-hijau-primary">
+                        <a target="blank" href="https://api.whatsapp.com/send?phone={{$pedagang[0]->phone}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </a>
+                        <h2 class="text-lg font-bold">{{ $pedagang[0]->name }}</h2>
+                        <div class="">
+                            <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg> {{$pedagang[0]->address}}</span>
+                            <p>Pesan: {{ $item->stok }}kg</p>
                         </div>
-                    </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg>
+                        </a>
+                    </div>
                 </li>
             @endforeach
         </ul>
-        <div class="flex items-center justify-around w-full p-4 m-auto text-white rounded-lg bg-hijau-primary">
-            <a href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                </svg>
-            </a>
-            <h2 class="text-lg font-bold">Pak Imam</h2>
-            <div class="">
-                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                    </svg> Loa Buah</span>
-                <p>Pesan: 50kg</p>
-            </div>
-            <a href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                    class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path
-                        d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                </svg>
-            </a>
-        </div>
     </div>
 @endsection
