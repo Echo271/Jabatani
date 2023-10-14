@@ -92,7 +92,7 @@ class UserController extends Controller
     public function getData()
     {
         // Path to the JSON files
-        $filePath1 = File::get('D:\Project\Website\Jabatani\dataserver\hargapasar-2023-10-12.json');
+        $filePath1 = File::get('D:\Project\Website\Jabatani\dataserver\hargapasar-2023-10-12.json`');
         $filePath2 = File::get('D:\Project\Website\Jabatani\dataserver\hargapasar-2023-10-13.json');
 
         // Parse the JSON data into PHP arrays

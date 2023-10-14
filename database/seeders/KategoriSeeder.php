@@ -14,16 +14,16 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         DB::table('kategori')->insert(
-            ['name' => 'Kubis']
+            ['name' => 'Cabai Merah']
         );
         DB::table('kategori')->insert(
-            ['name' => 'Cabai Besar']
+            ['name' => 'Bawang Merah']
         );
         DB::table('kategori')->insert(
             ['name' => 'Tomat']
         );
         DB::table('kategori')->insert(
-            ['name' => 'Wortel']
+            ['name' => 'Bawang Putih']
         );
     }
 }
