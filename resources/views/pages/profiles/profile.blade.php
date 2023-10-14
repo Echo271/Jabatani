@@ -16,7 +16,7 @@
     <div class="container pt-2 pb-8 shadow-lg">
         <div class="grid grid-cols-2 gap-2">
             <div class="w-full">
-                <img class="w-3/4 m-auto rounded-full" src="{{ asset("profiles/$user->image") }}"
+                <img class="w-3/4 m-auto rounded-full" src="{{ asset("/images/profiles/$user->image") }}"
                     alt="">
             </div>
             <div class="w-full m-auto">

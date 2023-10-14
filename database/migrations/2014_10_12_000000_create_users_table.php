@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('address');
-            $table->enum('role',['admin','petani','pedagang']);
+            $table->string('image');
+            $table->enum('role',['petani','pedagang']);
             $table->timestamps();
         });
     }

@@ -60,7 +60,7 @@ class UserController extends Controller
                 $lokasi_simpan = public_path('profiles');
 
                 if (file_exists($lokasi_simpan . '/' . $nama_file)) {
-                    return redirect("profile")->with('success', 'Data Berhasil Disimpan');
+                    return redirect("/images/profile")->with('success', 'Data Berhasil Disimpan');
                 } else {
                     $file->move($lokasi_simpan, $nama_file);
 
@@ -91,23 +91,28 @@ class UserController extends Controller
 
     public function getData()
     {
-        // Path to the JSON files
+        // Define the file paths relative to the storage or public directory
         $filePath1 = File::get('C:\xampp\htdocs\Jabatani\dataserver\hargapasar-2023-10-12.json');
         $filePath2 = File::get('C:\xampp\htdocs\Jabatani\dataserver\hargapasar-2023-10-13.json');
 
-        // Parse the JSON data into PHP arrays
-        $jsonData1 = json_decode($filePath1, true);
-        $jsonData2 = json_decode($filePath2, true);
+        // Check if the files exist before attempting to read and decode them
+        if (File::exists($filePath1) && File::exists($filePath2)) {
+            $jsonData1 = json_decode($filePath1, true);
+            $jsonData2 = json_decode($filePath2, true);
 
-        $data = [
-            'title' => 'Dashboard',
-            'user' => Auth::user(),
-            'data_api' => [
-                'data1' => $jsonData1,
-                'data2' => $jsonData2
-            ]
-        ];
+            $data = [
+                'title' => 'Dashboard',
+                'user' => Auth::user(),
+                'data_api' => [
+                    'data1' => $jsonData1,
+                    'data2' => $jsonData2
+                ]
+            ];
 
-        return view('/pages/dashboard', $data);
+            return view('pages.dashboard', $data);
+        } else {
+            // Handle the case where the files do not exist
+            return redirect('profile')->with('error', 'JSON files not found.');
+        }
     }
 }
