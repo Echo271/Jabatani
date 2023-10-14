@@ -35,7 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/create', [KomoditasController::class, 'create']);
     Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/profile-visit', [UserController::class, 'profileVisit']);
-    Route::get('/edit-profile', [UserController::class, 'edit']);
+    Route::get('/profile/edit', [UserController::class, 'edit']);
+    Route::post('/profile/edit', [UserController::class, 'update']);
     
     Route::get('/test', [UserController::class, 'getData']);
     Route::get('/test-json', [KomoditasController::class, 'saveapidata']);
