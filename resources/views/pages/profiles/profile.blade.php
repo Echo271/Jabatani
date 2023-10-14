@@ -117,7 +117,7 @@
                                 ->get();
                         @endphp
                         <a href="{{ url('pesanan', ['id_pesanan'=>$item->id,'id_pedagang' => $user->id]) }}"
-                            class="flex justify-around w-full p-4 m-auto text-white rounded-full bg-hijau-primary">
+                            class="grid grid-cols-2 ps-6 items-center gap-4 w-full p-4 m-auto text-white rounded-full bg-hijau-primary">
                             <div class="">
                                 <p class="text-xl font-bold">{{$komoditas[0]->name}}</p>
                                 <p>{{$petani[0]->name}}</p>
