@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('image');
+
             $table->enum('role',['petani','pedagang']);
             $table->timestamps();
         });
